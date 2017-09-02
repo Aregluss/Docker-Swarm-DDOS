@@ -52,3 +52,36 @@ $ ./curlAttack.sh
 ```
 
 - [x] Creating the Script
+
+
+### Setting up Dockerfile
+Without switching to a different directory lets create our Dockerfile.
+
+>$ vim Dockerfile
+```
+FROM tutum/curl
+ADD curlAttack.sh /usr/local/bin/curlAttack.sh
+CMD ["usr/local/bin/curlAttack.sh"]
+```
+- [ ] Setting up Dockerfile
+
+### Creating a Custom Docker File
+
+Now that dockerfile is set up properly, without switching into a different directory run the following command.
+```
+  $ docker build -t <imageName>:dockerfile .
+```
+Check if it was succesfull by running
+ ```
+ $ docker images
+ ```
+ 
+### Creating and Scaling a Service
+
+Start all the following commands with **docker service**
+
+| Command   | Description |
+| ------------- | ------------- |
+|  create --name \<serviceName> --detach=false \<imageName>:dockerfile | Creates a service from the custom dockerfile image.  |
+| scale \<serviceName>=\<#>  | Used to easily scale number of copies of the service.  |
+
