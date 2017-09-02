@@ -63,9 +63,9 @@ FROM tutum/curl
 ADD curlAttack.sh /usr/local/bin/curlAttack.sh
 CMD ["usr/local/bin/curlAttack.sh"]
 ```
-- [ ] Setting up Dockerfile
+- [x] Setting up Dockerfile
 
-### Creating a Custom Docker File
+### Creating a Custom Dockerfile
 
 Now that dockerfile is set up properly, without switching into a different directory run the following command.
 ```
@@ -75,6 +75,10 @@ Check if it was succesfull by running
  ```
  $ docker images
  ```
+ 
+ If you can find your image with the tag 'dockerfile' then we're good to go to the next step.
+ 
+ - [x] Creating a Custom Docker Image
  
 ### Creating and Scaling a Service
 
