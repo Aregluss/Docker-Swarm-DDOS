@@ -65,7 +65,7 @@ CMD ["usr/local/bin/curlAttack.sh"]
 ```
 - [x] Setting up Dockerfile
 
-### Creating a Custom Dockerfile
+### Creating a Custom Docker Image Through Dockerfile
 
 Now that dockerfile is set up properly, without switching into a different directory run the following command.
 ```
@@ -82,10 +82,27 @@ Check if it was succesfull by running
  
 ### Creating and Scaling a Service
 
-Start all the following commands with **docker service**
+So to start of here are useful commands to know, all of these start with: **docker service**
 
 | Command   | Description |
 | ------------- | ------------- |
 |  create --name \<serviceName> --detach=false \<imageName>:dockerfile | Creates a service from the custom dockerfile image.  |
 | scale \<serviceName>=\<#>  | Used to easily scale number of copies of the service.  |
+| rm \<serviceName> | Ends service with the given name.  |
+| ls | Lets you see running services and number of copies that are currently up. |
+
+Here's an example that sets up the image, creates a service, scales it then ends it.
+```
+$ docker build -t <imageName>:dockerfile .
+$ docker service create --name <serviceName> --detach=false <imageName>:dockerfile
+$ docker service scale <servicename>=100
+$ docker service rm done
+```
+
+Also you if you'll be repeating these often, I'd reccomend adding these as aliases for these.
+
+- [x] Creating and Scaling a Service
+
+
+### This is the end of tutorial, hope you found it useful.
 
