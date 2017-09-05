@@ -10,6 +10,7 @@ This repository will help you to create a DDOS attack on a server. This could be
 - [ ] Creating the Script
 - [ ] Setting up Dockerfile
 - [ ] Creating a Custom Docker Image
+- [ ] Setting up Docker Swarm
 - [ ] Creating and Scaling a Service
 
 
@@ -79,6 +80,19 @@ Check if it was succesfull by running
  If you can find your image with the tag 'dockerfile' then we're good to go to the next step.
  
  - [x] Creating a Custom Docker Image
+ 
+### Setting up Docker Swarm
+ 
+We can start up with docker swarm with the following command.
+```
+$ docker swarm init
+```
+If at this point you believe your computer has enough recources to make how many copied you like skip to the next step.
+Docker Swarm is also build in a way to distribute the workload between worker nodes. The docker swarm init command gives a join token which could be used on another device that has docker in order to have it join as a worker and share the workload.
+
+```
+$ docker swarm join --token <Token From Init Command>
+```
  
 ### Creating and Scaling a Service
 
